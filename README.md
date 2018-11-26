@@ -31,9 +31,11 @@ Other useful shortcuts: to navigate between window splits, do `ctrl+arrow keys` 
 
 
 
-To install, copy `.tmux.conf` to home folder. `ctrl+b` to trigger commands.
+To install, copy `.tmux.conf` to home folder. 
 
 To create a named session, type `tmux new -s session_name` in terminal.
+
+Once in a tmux session, `ctrl+b` to trigger commands.
 
 Useful commands:
 
