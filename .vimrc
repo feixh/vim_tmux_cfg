@@ -445,7 +445,7 @@ set cursorcolumn
 "command Lint ALELint  
 "command Fix ALEFix
 command Cfg :e $MYVIMRC
-tnoremap <Esc> <C-\><C-n>
+noremap <Esc> <C-\><C-n>
 
 " workaround to get rid of the weird character at bottom-left corner
 set guicursor=
