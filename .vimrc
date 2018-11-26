@@ -391,7 +391,7 @@ endfunction
 call plug#begin('~/.vim/plugged')
 " For neovim using the following:
 " call plug#begin('~/.config/nvim/plugged')
-Plug 'https://github.com/scrooloose/nerdtree.git'
+" Plug 'https://github.com/scrooloose/nerdtree.git'
 " Plug 'https://github.com/mileszs/ack.vim.git'
 Plug 'https://github.com/rking/ag.vim.git'
 " Plug 'https://github.com/vim-scripts/mru.vim.git'
@@ -444,8 +444,8 @@ set cursorcolumn
 " handy command for ale
 "command Lint ALELint  
 "command Fix ALEFix
-"command Cfg :e $MYVIMRC
-" tnoremap <Esc> <C-\><C-n>
+command Cfg :e $MYVIMRC
+tnoremap <Esc> <C-\><C-n>
 
 " workaround to get rid of the weird character at bottom-left corner
 set guicursor=
