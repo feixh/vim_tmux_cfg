@@ -391,17 +391,12 @@ endfunction
 call plug#begin('~/.vim/plugged')
 " For neovim using the following:
 " call plug#begin('~/.config/nvim/plugged')
-" Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/scrooloose/nerdtree.git'
 " Plug 'https://github.com/mileszs/ack.vim.git'
 Plug 'https://github.com/rking/ag.vim.git'
-" Plug 'https://github.com/vim-scripts/mru.vim.git'
-" Plug 'https://github.com/vim-scripts/bufexplorer.zip.git'
 Plug 'https://github.com/joshdick/onedark.vim.git'
 Plug 'https://github.com/itchyny/lightline.vim.git'
-" Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 " Plug 'https://github.com/w0rp/ale.git'
-" Plug 'https://github.com/Shougo/deoplete.nvim.git'
-" Plug 'https://github.com/itchyny/vim-gitbranch.git'
 Plug 'https://github.com/Yggdroot/LeaderF.git'
 call plug#end()
 
@@ -426,26 +421,7 @@ set cursorcolumn
 " highlight cursorline cterm=bold ctermbg=darkblue guibg=darkblue " cterm=none to hide the underline
 " highlight cursorcolumn cterm=none ctermbg=darkgray guibg=darkgray
 " highlight colorcolumn ctermbg=darkgray guibg=darkgray
-
-
-""""""""""""""""""""""
-" ALE setup
-""""""""""""""""""""""
-" ale for background async linter and formatter
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_lint_on_enter = 0 " uncomment to disable lint on opening
-" let g:ale_set_quickfix = 1
-" let g:ale_fixers = { 'python': 'yapf'}
-" let g:ale_linter = { 'python': 'pylint'}
-" let g:ale_set_highlights = 0
-" let g:ale_sign_style_warning=0
-" let g:ale_sign_style_error=0
-" let g:ale_fix_on_save = 1 " omit this to avoid change of existing code
-" handy command for ale
-"command Lint ALELint  
-"command Fix ALEFix
 command Cfg :e $MYVIMRC
-noremap <Esc> <C-\><C-n>
 
 " workaround to get rid of the weird character at bottom-left corner
 set guicursor=
