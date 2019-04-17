@@ -391,7 +391,6 @@ endfunction
 call plug#begin('~/.vim/plugged')
 " For neovim using the following:
 " call plug#begin('~/.config/nvim/plugged')
-Plug 'https://github.com/junegunn/goyo.vim.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 " Plug 'https://github.com/mileszs/ack.vim.git'
 Plug 'https://github.com/rking/ag.vim.git'
@@ -404,19 +403,15 @@ Plug 'https://github.com/itchyny/lightline.vim.git'
 " Plug 'https://github.com/Shougo/deoplete.nvim.git'
 " Plug 'https://github.com/itchyny/vim-gitbranch.git'
 Plug 'https://github.com/Yggdroot/LeaderF.git'
+Plug 'https://github.com/lervag/vimtex.git'
 call plug#end()
 
 """"""""""""""""""""
 " NERD TREE
 """"""""""""""""""""
 nnoremap <leader>nn :NERDTreeToggle<CR>
-" nnoremap <leader>o :BufExplorer<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" nnoremap <leader>f :MRU<CR>
-nnoremap <leader>z :Goyo<CR>
 nnoremap <leader>g :Ag <space>
-" nnoremap <leader>af :ALEFix <CR>
-" nnoremap <leader>al :ALELint <CR>
 nnoremap <C-c> :copen <CR>
 
 let g:NERDTreeWinPos="right"
@@ -448,14 +443,11 @@ set cursorcolumn
 " let g:ale_sign_style_error=0
 " let g:ale_fix_on_save = 1 " omit this to avoid change of existing code
 " handy command for ale
-command Lint ALELint  
-command Fix ALEFix
+"command Lint ALELint  
+"command Fix ALEFix
 command Cfg :e $MYVIMRC
-" tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 
-" Use deoplete.
-" let g:deoplete#enable_at_startup = 1
-"
 " workaround to get rid of the weird character at bottom-left corner
 set guicursor=
 " transparent background if terminal is transparent
@@ -472,57 +464,6 @@ let g:lightline = {
       \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
-
-"""""""""""""""""""""""""""""""""""
-" Proper Math Highlight in Markdown
-"""""""""""""""""""""""""""""""""""
-function! MathAndLiquid()
-    "" Define certain regions
-    " Block math. Look for "$$[anything]$$"
-    syn region math start=/\$\$/ end=/\$\$/
-    " inline math. Look for "$[not $][anything]$"
-    syn match math_block '\$[^$].\{-}\$'
-
-    " Liquid single line. Look for "{%[anything]%}"
-    syn match liquid '{%.*%}'
-    " Liquid multiline. Look for "{%[anything]%}[anything]{%[anything]%}"
-    syn region highlight_block start='{% highlight .*%}' end='{%.*%}'
-    " Fenced code blocks, used in GitHub Flavored Markdown (GFM)
-    syn region highlight_block start='```' end='```'
-
-    syn keyword markdownKeyword FIXME
-    syn keyword markdownKeyword TODO
-
-    "" Actually highlight those regions.
-    hi link math Statement
-    hi link math_block Function
-    hi link liquid Statement
-    hi link highlight_block Function
-    hi link markdownKeyword Keyword
-endfunction
-" Call everytime we open a Markdown file
-autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
-
-function! PandocFunc()
-  """ Convert markdown to html.
-  """
-  let l:filename = expand('%:t:r')
-  " Construct command by concatenating raw strings and variables
-  " Use . to concatenate strings without introducing extra spaces
-  " And use execute to run the command.
-  exec "!pandoc --toc -s -o " . l:filename . ".html % --mathjax  --tab-stop 4"
-endfunction
-
-function! PreviewFunc()
-  """ Convert markdown to html and open in chrome.
-  """
-  let l:filename = expand('%:t:r')
-  exec "!pandoc --toc -s -o " . l:filename . ".html % --mathjax  --tab-stop 4"
-  exec "!google-chrome " . l:filename . ".html &"
-endfunction
-
-command! Preview exec PreviewFunc()
-command! Pandoc exec PandocFunc()
 
 """"""""""""""""""""
 " Leaderf Setup
