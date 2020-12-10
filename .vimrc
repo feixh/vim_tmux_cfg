@@ -402,8 +402,9 @@ Plug 'https://github.com/itchyny/lightline.vim.git'
 " Plug 'https://github.com/w0rp/ale.git'
 " Plug 'https://github.com/Shougo/deoplete.nvim.git'
 " Plug 'https://github.com/itchyny/vim-gitbranch.git'
+Plug 'https://github.com/rhysd/vim-clang-format'
 Plug 'https://github.com/Yggdroot/LeaderF.git'
-Plug 'https://github.com/lervag/vimtex.git'
+" Plug 'https://github.com/lervag/vimtex.git'
 call plug#end()
 
 """"""""""""""""""""
@@ -470,3 +471,12 @@ let g:lightline = {
 """"""""""""""""""""
 noremap <C-f> :LeaderfFunction <CR>
 noremap <C-b> :LeaderbFunction <CR>
+""""""""""""""""""""
+" clang-format setup
+""""""""""""""""""""
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc ClangFormatAutoEnable
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
