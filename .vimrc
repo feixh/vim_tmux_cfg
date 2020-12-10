@@ -143,11 +143,11 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-set background=dark
-try
-    colorscheme onedark
-catch
-endtry
+" set background=dark
+" try
+"     colorscheme onedark
+" catch
+" endtry
 
 
 
@@ -396,7 +396,7 @@ Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/rking/ag.vim.git'
 " Plug 'https://github.com/vim-scripts/mru.vim.git'
 " Plug 'https://github.com/vim-scripts/bufexplorer.zip.git'
-Plug 'https://github.com/joshdick/onedark.vim.git'
+" Plug 'https://github.com/joshdick/onedark.vim.git'
 Plug 'https://github.com/itchyny/lightline.vim.git'
 " Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 " Plug 'https://github.com/w0rp/ale.git'
@@ -416,10 +416,10 @@ nnoremap <C-c> :copen <CR>
 
 let g:NERDTreeWinPos="right"
 
-colorscheme onedark
-set nu
-set cursorline
-set cursorcolumn
+" colorscheme onedark
+" set nu
+" set cursorline
+" set cursorcolumn
 " set colorcolumn=80 
 " setup hightlight mode for current line
 " ref: http://vim.wikia.com/wiki/Highlight_current_line
