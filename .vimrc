@@ -418,7 +418,7 @@ nnoremap <C-c> :copen <CR>
 let g:NERDTreeWinPos="right"
 
 " colorscheme onedark
-" set nu
+set nu
 " set cursorline
 " set cursorcolumn
 " set colorcolumn=80 
