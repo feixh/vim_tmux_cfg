@@ -465,6 +465,8 @@ let g:lightline = {
       \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
+" make color correct inside a tmux session
+set term=screen-256color  
 
 """"""""""""""""""""
 " Leaderf Setup
